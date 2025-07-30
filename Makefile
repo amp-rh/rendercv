@@ -1,5 +1,5 @@
 CONTAINER_ENGINE=podman
-T="rendercv"
+T="ghcr.io/amp-rh/rendercv:latest"
 
 default: build
 
@@ -11,3 +11,6 @@ run: build
 
 debug: build
 	$$CONTAINER_ENGINE run -it --entrypoint=bash --rm $T
+
+push: build
+	$$CONTAINER_ENGINE push $T

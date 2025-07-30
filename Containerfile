@@ -18,8 +18,9 @@ ENV VERSION 2.3
 COPY --from=build /app/dist/*.whl .
 RUN <<EOF
   uv venv
-  uv pip install ./rendercv-${VERSION}-py3-none-any.whl[full]
+  uv tool install .[full]
 EOF
 
 FROM install AS run
-ENTRYPOINT ["uv", "run", "rendercv"]
+WORKDIR /tmp
+ENTRYPOINT ["uv", "tool", "run", "rendercv"]
