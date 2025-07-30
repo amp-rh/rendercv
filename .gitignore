@@ -190,3 +190,5 @@ render_command.prof
 
 # Executables:
 bin/
+
+.idea
